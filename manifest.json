@@ -4,6 +4,9 @@
     "description": "Replaces words on pages with Amberlynn Reid-ified versions. E.g. girl -> gorl.",
     "manifest_version": 3,
     "author": "ps4star",
+    "icons": { "16": "gorlifyicon_16.png",
+           "48": "gorlifyicon_48.png",
+          "128": "gorlifyicon_128.png" },
     "content_scripts": [{
         "js": ["content.js"],
         "matches": ["<all_urls>"]
