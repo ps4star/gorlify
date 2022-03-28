@@ -1,0 +1,15 @@
+{
+    "name": "Gorlify",
+    "version": "1.0.0",
+    "description": "Replaces words on pages with Amberlynn Reid-ified versions. E.g. girl -> gorl.",
+    "manifest_version": 3,
+    "author": "ps4star",
+    "default_locale": "en",
+    "action": {
+        "default_title": "Gorlify"
+    },
+    "permissions": ["activeTab", "scripting"],
+    "background": {
+        "service_worker": "background.js"
+    }
+}
