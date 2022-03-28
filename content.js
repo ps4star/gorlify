@@ -19,18 +19,18 @@ const rTable = [
 	"pieces of bacon", "bacons",
 	"destiny", "density",
 	"weight loss", "weight gain",
-	"wal[\-]*mart", "wommart",
+	"wal[-]*mart", "wommart",
 	"wreath", "reef",
-	"night(\-| )*time", "darktime",
+	"night(-| )*time", "darktime",
 	"moment", "molment",
-	"windchime[\s]*", "jangly loud thing",
+	"windchime[s]*", "jangly loud thing",
 	"rape", "rain and petals eavesdrop, I used the wrong word",
-	"napkin holder is empty", "napkin holder is all like no-napkiney",
+	"napkin holder is empty", "napkin holder is all like no\-napkiney",
 	"standing", "standed",
 	"realize", "rillize",
 	"meal", "mill",
 	"selling", "saileen",
-	"big?", "BIG?? ARE YOU CALLING ME BIG??",
+	"big", "ARE YOU CALLING ME BIG",
 	"dizzy", "jambled",
 	"confused", "jambled",
 	"mixed up", "jambled up",
@@ -42,6 +42,7 @@ const rTable = [
 // }
 
 function doTextReplace(txt) {
+	//console.time()
 	for (let i = 0; i < rTable.length; i += 2) {
 		const regex = new RegExp(`${rTable[i]}`, "gi")
 		const testMatch = txt.match(regex)
@@ -64,11 +65,13 @@ function doTextReplace(txt) {
 			toRep = toRep.charAt(0).toUpperCase() + toRep.slice(1)
 		}
 
-		const resultRegex = new RegExp(toRep)
-		if (txt.match(resultRegex)) continue
+		if (txt.toLowerCase().indexOf(toRep.toLowerCase()) > -1) {
+			continue
+		}
 
 		txt = txt.replace(regex, toRep)
 	}
+	//console.timeEnd()
 	return txt
 }
 
@@ -118,9 +121,7 @@ function doTextReplace(txt) {
 
 // doRep(docEls)
 
-window.onload = () => {
-	walk(document.body)
-}
+window.onload = () => walk(document.body)
 
 function walk(node) 
 {
@@ -128,6 +129,8 @@ function walk(node)
 	// http://is.gd/mwZp7E
 	
 	var child, next;
+
+	if (node.nodeName === "SCRIPT" || node.nodeName === "STYLE") return
 
 	switch ( node.nodeType )  
 	{
@@ -159,10 +162,12 @@ function handleText(textNode)
 const observer = new MutationObserver((ml, observer) => {
 	observer.takeRecords()
 
-	for (mut of ml) {
-		walk(mut.target)
-		walk(document.getElementsByTagName('TITLE')[0])
-	}
+	setTimeout(() => {
+		for (mut of ml) {
+			walk(mut.target)
+			walk(document.getElementsByTagName('TITLE')[0])
+		}
+	}, 100)
 })
 
 observer.observe(document.body, {
