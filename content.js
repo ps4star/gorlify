@@ -41,7 +41,30 @@ const rTable = [
 function doTextReplace(txt) {
 	for (let i = 0; i < rTable.length; i += 2) {
 		const regex = new RegExp(`${rTable[i]}`, "gi")
-		txt = txt.replace(regex, rTable[i + 1])
+		const testMatch = txt.match(regex)
+
+		let isUpper = 0
+		if (testMatch) {
+			if (testMatch[0].charAt(0) >= 'A' && testMatch[0].charAt(0) <= 'Z') {
+				isUpper = 1
+
+				if (testMatch[0].length >= 2 && testMatch[0].charAt(1) >= 'a' && testMatch[0].charAt(1) <= 'z') {
+					isUpper = 2
+				}
+			}
+		}
+
+		let toRep = rTable[i + 1]
+		if (isUpper == 1) {
+			toRep = toRep.toUpperCase()
+		} else if (isUpper == 2) {
+			toRep = toRep.charAt(0).toUpperCase() + toRep.slice(1)
+		}
+
+		const resultRegex = new RegExp(toRep)
+		if (txt.match(resultRegex)) continue
+
+		txt = txt.replace(regex, toRep)
 	}
 	return txt
 }
