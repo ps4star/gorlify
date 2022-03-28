@@ -16,7 +16,7 @@ const rTable = [
 	"lie", "lah",
 	"much sodium", "many sodiums",
 	"cheese", "chease",
-	"pieces of bacon", "bacons",
+	"bacon", "bacons",
 	"destiny", "density",
 	"weight loss", "weight gain",
 	"wal[-]*mart", "wommart",
@@ -130,7 +130,7 @@ function walk(node)
 	
 	var child, next;
 
-	if (node.nodeName === "SCRIPT" || node.nodeName === "STYLE") return
+	if (node.nodeName === "SCRIPT" || node.nodeName === "STYLE" || node.nodeName === "DIV" || node.nodeName === "SECTION" || node.nodeName === "IMG") return
 
 	switch ( node.nodeType )  
 	{

@@ -1,6 +1,6 @@
 {
     "name": "Jambled Up Words",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Replaces words on pages with Amberlynn Reid-ified versions. E.g. girl -> gorl.",
     "manifest_version": 3,
     "author": "ps4star",
