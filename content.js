@@ -23,7 +23,7 @@ const rTable = [
 	"wreath", "reef",
 	"night(\-| )*time", "darktime",
 	"moment", "molment",
-	"windchime[s]*", "jangly loud thing",
+	"windchime[\s]*", "jangly loud thing",
 	"rape", "rain and petals eavesdrop, I used the wrong word",
 	"napkin holder is empty", "napkin holder is all like no-napkiney",
 	"standing", "standed",
@@ -31,6 +31,9 @@ const rTable = [
 	"meal", "mill",
 	"selling", "saileen",
 	"big", "BIG??",
+	"dizzy", "jambled",
+	"confused", "jambled",
+	"mixed up", "jambled up",
 ]
 
 // const compiledRTable = []
