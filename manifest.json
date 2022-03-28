@@ -1,12 +1,12 @@
 {
-    "name": "Gorlify",
-    "version": "1.0.0",
+    "name": "Jambled Up Words",
+    "version": "1.0.1",
     "description": "Replaces words on pages with Amberlynn Reid-ified versions. E.g. girl -> gorl.",
     "manifest_version": 3,
     "author": "ps4star",
-    "icons": { "16": "gorlifyicon_16.png",
-           "48": "gorlifyicon_48.png",
-          "128": "gorlifyicon_128.png" },
+    "icons": { "16": "jambledicon_16.png",
+           "48": "jambledicon_48.png",
+          "128": "jambledicon_128.png" },
     "content_scripts": [{
         "js": ["content.js"],
         "matches": ["<all_urls>"]
