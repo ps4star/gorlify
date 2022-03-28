@@ -30,7 +30,7 @@ const rTable = [
 	"realize", "rillize",
 	"meal", "mill",
 	"selling", "saileen",
-	"big", "BIG??",
+	"big?", "BIG?? ARE YOU CALLING ME BIG??",
 	"dizzy", "jambled",
 	"confused", "jambled",
 	"mixed up", "jambled up",
